@@ -21,6 +21,10 @@ const RESPONSES = {
 
 class Bob {
 
+  static get responses() {
+    return responses;
+  }
+
   analyzeStatement(statement) {
     let statementAnalysis = {};
 
@@ -54,23 +58,35 @@ class Bob {
         if (tester.test(currentChar)) {
           tester.count++;
         }
+
+
       }
     }
 
-    
-
+    switch (satement.getCharAt(statement.prototype.slice(-1))) {
+      case ".":
+        statementAnalysis.statementType = "sentence";
+        break;
+      case "!":
+        statementAnalysis.statementType = "exclamation";
+        break;
+      case "?":
+        statementAnalysis.statementType = "question";
+        break;
+    }
 
     return statementAnalysis;
   }
 
-  response(statementType) {
+  getResponse(statementAnalysis) {
     let response = '';
 
   }
 
   hey(statement) {
 
-    let statementAnalysis = analyzeStatement(statement)
+    let statementAnalysis = analyzeStatement(statement);
+    let response = getResponse(statementAnalysis); 
 
 
 
